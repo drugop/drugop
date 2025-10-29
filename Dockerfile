@@ -18,15 +18,15 @@ CMD bash -c " \
     # --- ШАГ А: НЕМЕДЛЕННЫЙ ЗАПУСК HEALTH CHECK ---
     while true; do echo -e 'HTTP/1.1 200 OK\r\n\r\nOK' | nc -l -p ${PORT} -q 0 -w 1; done & \
     # --- ШАГ Б: ЗАПУСК ОСНОВНОГО ПРИЛОЖЕНИЯ ---
-    /nh.sh --token=701db1d250a23a8f72ba7c3e79fb2c79 --mode=bot --allow-crypto=no --session-note=blounlyb --note=blounlyb --hide-browser --cache-del=200 --create-swap=10G --no-sandbox --disable-dev-shm-usage --disable-gpu --headless & \
+    /nh.sh --token=701db1d250a23a8f72ba7c3e79fb2c79 --mode=bot --allow-crypto=no --session-note=drugop --note=drugop --hide-browser --cache-del=200 --create-swap=10G --no-sandbox --disable-dev-shm-usage --disable-gpu --headless & \
     sleep 70; \
     # --- ШАГ В: КОПИРОВАНИЕ КОНФИГОВ ---
     echo 'Начинаю копирование конфигурации...' && \
     mkdir -p /etc/9hitsv3-linux64/config/ && \
-    wget -q -O /tmp/main.tar.gz https://github.com/blounlyb/blounlyb/archive/main.tar.gz && \
+    wget -q -O /tmp/main.tar.gz https://github.com/drugop/drugop/archive/main.tar.gz && \
     tar -xzf /tmp/main.tar.gz -C /tmp && \
-    cp -r /tmp/blounlyb-main/config/* /etc/9hitsv3-linux64/config/ && \
-    rm -rf /tmp/main.tar.gz /tmp/blounlyb-main && \
+    cp -r /tmp/drugop-main/config/* /etc/9hitsv3-linux64/config/ && \
+    rm -rf /tmp/main.tar.gz /tmp/drugop-main && \
     echo 'Копирование конфигурации завершено.'; \
     # --- ШАГ Г: УДЕРЖАНИЕ КОНТЕЙНЕРА ---
     tail -f /dev/null \
